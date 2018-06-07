@@ -12,7 +12,7 @@
       apt:
         name: unzip
         update_cache: yes
-        state: presen
+        state: present
         
     - name: Upload Zip file
       copy:
