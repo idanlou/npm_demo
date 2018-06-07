@@ -17,7 +17,7 @@ npm run build'''
     stage('Test') {
       when {
         expression {
-          params.REQUESTED_ACTION == 'Test'
+          params.REQUESTED_ACTION == 'Build'
         }
       }
       steps {
@@ -28,7 +28,7 @@ npm run build'''
     stage('Deploy') {
       when {
         expression {
-          params.REQUESTED_ACTION == 'Deploy'
+          params.REQUESTED_ACTION == 'Build'
         }
       }
       steps {
@@ -41,7 +41,7 @@ ansible-playbook playbooks/deploy_dev.yml'''
     stage('Staging') {
       when {
         expression {
-          params.REQUESTED_ACTION == 'Staging'
+          params.REQUESTED_ACTION == 'Stage'
         }
       }
       steps {
