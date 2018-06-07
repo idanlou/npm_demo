@@ -7,21 +7,24 @@
         name: npm
         update_cache: yes
         state: present
+        
     - name: Install Unzip Package
       apt:
         name: unzip
         update_cache: yes
-        state: present
+        state: presen
+        
     - name: Upload Zip file
       copy:
         src: files/nodejs-demoapp.zip
-        dest: /tmp1
+        dest: /tmp/1
+        
     - name: Unarchive Zip file
       unarchive:
         src: /tmp/nodejs-demoapp.zip
-        dest: /tmp1
+        dest: /tmp/1
         remote_src: yes
-    
+  
     - name: Install "pm2" node.js package.
       npm:
         name: pm2
@@ -30,9 +33,9 @@
     - name: Install packages based on package.json
       shell: npm i
       args:
-        chdir: /tmp1
+        chdir: /tmp/1
     
     - name: Run app using pm2
       shell: pm2 start server.js -f
       args:
-        chdir: /tmp1
+        chdir: /tmp/1
