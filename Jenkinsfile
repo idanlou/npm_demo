@@ -18,6 +18,13 @@ npm run build'''
         sh 'npm run test'
       }
     }
+    stage('Deploy') {
+      steps {
+        sh '''mkdir playbooks/files
+cp nodejs-demoapp.zip playbooks/files/nodejs-demoapp.zip
+ansible-playbook playbooks/deploy-dev.yml'''
+      }
+    }
   }
   parameters {
     choice(name: 'REQUESTED_ACTION', choices: '''Build
