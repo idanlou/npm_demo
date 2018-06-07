@@ -17,12 +17,12 @@
     - name: Upload Zip file
       copy:
         src: files/nodejs-demoapp.zip
-        dest: /tmp/3/
+        dest: /tmp/333/
         
     - name: Unarchive Zip file
       unarchive:
         src: /tmp/nodejs-demoapp.zip
-        dest: /tmp/3
+        dest: /tmp/333
         remote_src: yes
   
     - name: Install "pm2" node.js package.
@@ -33,9 +33,9 @@
     - name: Install packages based on package.json
       shell: npm i
       args:
-        chdir: /tmp/3
+        chdir: /tmp/333
     
     - name: Run app using pm2
       shell: pm2 start server.js -f
       args:
-        chdir: /tmp/3
+        chdir: /tmp/333
