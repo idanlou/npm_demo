@@ -21,7 +21,7 @@
         
     - name: Unarchive Zip file
       unarchive:
-        src: /tmp/nodejs-demoapp.zip
+        src: /tmp/333/nodejs-demoapp.zip
         dest: /tmp/333
         remote_src: yes
   
